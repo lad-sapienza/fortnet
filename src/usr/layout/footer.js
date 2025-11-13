@@ -13,6 +13,8 @@ const FooterSection = () => {
         <div className="footer-content">
           <div className="footer-section">
             <img src={fortnetLogo} alt="FortNet" className="footer-logo" />
+          </div>
+          <div className="footer-section">
             <p className="footer-text">
               PRIN 2022 Research Project funded by the European Union – Next Generation EU,
               Mission 4 Component 1
@@ -84,7 +86,7 @@ const Footer = styled.footer`
 
   .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 3rem;
     
     @media (max-width: 768px) {
