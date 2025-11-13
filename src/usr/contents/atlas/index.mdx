@@ -1,8 +1,11 @@
 ---
-title: "Atlas"
+title: "FortNet Archaeological Atlas"
 date: "2025-11-12"
 slug: "atlas"
-description: "Explore FortNet's georeferenced bibliography through an interactive map. Browse archaeological and historical sources about coastal Chaonia, Northern Epirus, and Albania, organized by location and research themes."
+description: "Explore the FortNet Archaeological Atlas featuring an interactive map of archaeological sites, fortifications, and settlements catalogued during the project in coastal Chaonia, Northern Epirus, Albania. Browse sites from the Iron Age to Medieval period with detailed information and search capabilities."
+keywords: "archaeological atlas, FortNet sites, Chaonia map, Albania archaeology, fortifications map, interactive site map, archaeological database, GIS archaeology, coastal Chaonia sites"
+author: "FortNet Project Team"
+lang: "en"
 menu_position: 3
 ---
 
@@ -12,15 +15,33 @@ import {
   Documenter
 } from "../../../modules/scms.js"
 
-### Adding a vector layer from a Directus API with filter
+## Archaeological Atlas
 
+Welcome to the FortNet Archaeological Atlas, an interactive mapping tool that displays all archaeological sites catalogued during the research project. This dynamic map provides a comprehensive overview of fortifications, settlements, and archaeological remains documented along the coastal region of ancient Chaonia in Northern Epirus (Albania).
+
+### Interactive Features
+
+The map offers powerful exploration capabilities:
+
+- **Browse by Location**: Navigate the map to discover sites across the research area
+- **Search Functionality**: Query the database by site name, typology, or chronological period
+- **Detailed Information**: Click on any site marker to view comprehensive details including site name, typology, and chronological attribution
+- **Layer Controls**: Toggle different site categories and base map layers for optimal visualization
+
+Each site marker opens a popup window with essential information. Additional detailed views for individual sites will be implemented in future updates, accessible through buttons within the popup interface.
+
+### Site Data
+
+All sites displayed on this map have been systematically documented by the FortNet research team using modern surveying technologies and geophysical methods. The database continues to grow as fieldwork progresses, providing an up-to-date resource for researchers and the broader academic community.
+
+---
 
 <MapLibre 
   center="20.12367,39.68117,10"
   baseLayers={["EsriSatellite"]}
 >
   <VectorLayerLibre
-    name="Hellenistic and Roman Sites"
+    name="Archaeological Sites"
     source={{
       directus: {
         table: "sites",
@@ -46,6 +67,6 @@ import {
         "circle-stroke-color": "#000000"
       },
     }}
-    popupTemplate="<h4>${site_name}</h4><p>${typology}</p><small>${chronology}</small>"
+    popupTemplate="<h4>${site_name}</h4><ul><li>Typology: ${typology}</li><li>Chronology: ${chronology}</li></ul><p class='text-center'><a class='btn btn-primary btn-sm' href='/record/?tb=sites&id=${id}'>Details</a></p>"
   />
 </MapLibre>
