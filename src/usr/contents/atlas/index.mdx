@@ -1,0 +1,51 @@
+---
+title: "Atlas"
+date: "2025-11-12"
+slug: "atlas"
+description: "Explore FortNet's georeferenced bibliography through an interactive map. Browse archaeological and historical sources about coastal Chaonia, Northern Epirus, and Albania, organized by location and research themes."
+menu_position: 3
+---
+
+import {
+  MapLibre,
+  VectorLayerLibre,
+  Documenter
+} from "../../../modules/scms.js"
+
+### Adding a vector layer from a Directus API with filter
+
+
+<MapLibre 
+  center="20.12367,39.68117,10"
+  baseLayers={["EsriSatellite"]}
+>
+  <VectorLayerLibre
+    name="Hellenistic and Roman Sites"
+    source={{
+      directus: {
+        table: "sites",
+        geoField: "coordinates",
+        queryString: "filter[typology][_icontains]=fort"
+      }
+    }}
+    checked={true}
+    fitToContent={true}
+    type="geojson"
+    searchInFields={{
+      "site_name": "Site name",
+      "typology": "Typology",
+      "chronology": "Chronology"
+    }}
+    style={{
+      id: "sites",
+      type: "circle",
+      paint: {
+        "circle-radius": 4,
+        "circle-color": "#ff0000",
+        "circle-stroke-width": 1.5,
+        "circle-stroke-color": "#000000"
+      },
+    }}
+    popupTemplate="<h4>${site_name}</h4><p>${typology}</p><small>${chronology}</small>"
+  />
+</MapLibre>
