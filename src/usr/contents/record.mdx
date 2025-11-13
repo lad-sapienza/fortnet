@@ -1,0 +1,27 @@
+---
+title: "Record example"
+date: "2023-10-01"
+slug: "record"
+description: ""
+---
+
+import { Record, Field } from "../../modules/scms.js"
+
+<Record>
+  - **Site ID**: <Field name={["site_id"]} />
+  - **Site Name**: <Field name={["site_name"]} />
+  - **Ancient name**: <Field name={["ancient_name"]} />
+  - **Typology**: <Field name={["typology"]}  transformer={ d => d.map(i => {
+        return i.charAt(0).toUpperCase() + i.slice(1).toLowerCase()
+      }).join(', ') }/>
+  - **Chronology**: <Field name={["chronology"]} transformer={ d => d.join(', ') }/>
+  - **Description**: <Field name={["description_en"]} />
+
+  ---
+
+  **Bibliographic references**:
+  <ul>
+    <Field name={["bibligraphic_references"]} transformer={ d => d.map( i => {return <li>{i.zotero}, {i.details}</li>}) } />
+  </ul>
+  
+</Record>
