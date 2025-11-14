@@ -17,7 +17,11 @@ module.exports = {
     title: `FortNet Project`,
     description: `FortNet - Fortification and population network in coastal Chaonia, Northern Epirus (Albania) between Iron Age and the Medieval period. PRIN 2022 Research Project by Università di Bologna and Sapienza Università di Roma`,
     author: `Julian Bogdani <julian.bogdani@uniroma1.it>`,
+    siteName: `FortNet a PRIN 2022 Project`,
     siteUrl: `https://fortnet.lad-sapienza.it`,
+    titleTemplate: `%s | FortNet Project`,
+    twitter: `@JulianBogdani`,
+    defaultImage: `images/fortnet-logo.jpg`,
   },
   plugins: [
     `gatsby-plugin-image`,
