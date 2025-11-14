@@ -36,6 +36,8 @@ const FooterSection = () => {
               </a>
               <br />
               P.I.: Enrico Giorgi
+              <br />
+              Dept. of History and Cultures, Piazza San Giovanni in Monte 2, Bologna
             </p>
             <p className="footer-text">
               <a
@@ -48,6 +50,8 @@ const FooterSection = () => {
               </a>
               <br />
               Head of research unit: Julian Bogdani
+              <br />
+              Dept. of SARAS, Faculty of Literature and Philosopy, Piazzale Aldo Moro 5, Roma
             </p>
           </div>
         </div>
