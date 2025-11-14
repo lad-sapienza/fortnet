@@ -64,18 +64,15 @@ jobs:
           #
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: gatsby
-      - name: Restore cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            .cache
-          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-gatsby-build-
       - name: Install dependencies
         run: npm install --include=optional
-      - name: Rebuild native dependencies
-        run: npm rebuild @parcel/watcher
+      - name: Verify @parcel/watcher installation
+        run: |
+          if [ ! -d "node_modules/@parcel/watcher" ]; then
+            echo "@parcel/watcher not found, installing explicitly..."
+            npm install @parcel/watcher --save-optional
+          fi
+          npm rebuild @parcel/watcher
       - name: Clean Gatsby cache
         run: npm run clean
       - name: Build with Gatsby
@@ -83,6 +80,7 @@ jobs:
           PREFIX_PATHS: 'true'
           GATSBY_DIRECTUS_ENDPOINT: ${{ secrets.GATSBY_DIRECTUS_ENDPOINT }}
           GATSBY_DIRECTUS_TOKEN: ${{ secrets.GATSBY_DIRECTUS_TOKEN }}
+          NODE_ENV: 'production'
         run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
