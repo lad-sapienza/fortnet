@@ -7,6 +7,7 @@ import mur from "../images/mur.png"
 import italiaDomani from "../images/italia-domani.png"
 import uniboWhite from "../images/unibo-white.png"
 import sapienzaWhite from "../images/sapienza-white.png"
+import fortnetLogo from "../images/fortnet-logo.jpg"
 
 const HeaderSection = () => (
   <Header>
@@ -14,7 +15,7 @@ const HeaderSection = () => (
       <div className="header-content">
         <Link to={"/"} className="logo-link">
           <img
-            src="/fortnet-logo.jpg"
+            src={fortnetLogo}
             alt="FortNet Project"
             className="logo-image"
           />
