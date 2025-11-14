@@ -27,14 +27,14 @@ const captionStyle = `
   }
 `;
 
-const MyGallery = ({ path }) => {
+const MyGallery = ({ path, reverseSorting = false }) => {
   const location = useLocation();
   
   const data = useStaticQuery(graphql`
     {
       allFile(
         filter: {
-          extension: { regex: "/(jpg|jpeg|png|gif)/" }
+          extension: { regex: "/(jpg|jpeg|png|gif|webp|avif)/" }
           relativePath: { regex: "/gallery/" }
         }
         sort: { name: DESC }
@@ -64,16 +64,24 @@ const MyGallery = ({ path }) => {
   `);
 
   // Use provided path or get the current path from location
-  const currentPath = path || location.pathname.replace(/^\/|\/$/g, '') + '/gallery/';
+  let currentPath = path || location.pathname.replace(/^\/|\/$/g, '') + '/gallery/';
+  // Remove double slashes
+  currentPath = currentPath.replace(/\/\//g, '/');
   
   // Filter images that are in the gallery folder for this path
-  const images = data.allFile.edges
+  let images = data.allFile.edges
     .filter(({ node }) => {
       const relativePath = node.relativePath;
       // Check if the image is in the gallery folder for this path
       return relativePath.includes(currentPath);
     })
     .map(({ node }) => {
+      // Check if childImageSharp exists, otherwise skip this image
+      if (!node.childImageSharp) {
+        console.warn(`Image ${node.relativePath} could not be processed by Sharp`);
+        return null;
+      }
+      
       const original = node.childImageSharp.original;
       const thumbImage = node.childImageSharp.thumb;
       
@@ -84,7 +92,13 @@ const MyGallery = ({ path }) => {
         height: original.height,
         name: node.name
       };
-    });
+    })
+    .filter(Boolean); // Remove null entries
+
+  // Reverse sorting if requested
+  if (reverseSorting) {
+    images = images.reverse();
+  }
 
   if (images.length < 1) {
     return null;
@@ -172,6 +186,11 @@ MyGallery.propTypes = {
    * Example: "my-content/subfolder"
    */
   path: PropTypes.string,
+  /**
+   * Reverse the default sorting order (DESC by name) of images.
+   * When true, images will be sorted in ascending order.
+   */
+  reverseSorting: PropTypes.bool,
 };
 
 export { MyGallery };
