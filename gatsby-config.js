@@ -58,15 +58,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `FortNet Project`,
+        short_name: `FortNet`,
         start_url: `/`,
-        background_color: `#663399`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
+        background_color: `#1e40af`,
+        theme_color: `#2563eb`,
         display: `minimal-ui`,
-        icon: `src/usr/images/fortnet.png`, // This path is relative to the root of the site.
+        icon: `src/usr/images/fortnet.png`,
+        cache_busting_mode: `none`,
+        include_favicon: true,
       },
     },
     {
