@@ -61,10 +61,12 @@ All sites displayed on this map have been systematically documented by the FortN
       id: "sites",
       type: "circle",
       paint: {
-        "circle-radius": 4,
-        "circle-color": "#ff0000",
-        "circle-stroke-width": 1.5,
-        "circle-stroke-color": "#000000"
+        "circle-radius": 8,
+        "circle-color": "#1e40af",
+        "circle-opacity": 0.85,
+        "circle-stroke-width": 1,
+        "circle-stroke-color": "#ffffff",
+        "circle-stroke-opacity": 0.95
       },
     }}
     popupTemplate="<h4>${site_name}</h4><ul><li>Typology: ${typology}</li><li>Chronology: ${chronology}</li></ul><p class='text-center'><a class='btn btn-primary btn-sm' href='/record/?tb=sites&id=${id}'>Details</a></p>"
