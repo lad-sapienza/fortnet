@@ -73,7 +73,13 @@ const FooterSection = () => {
             </p>
           </div>
         </div>
+        <img
+            src="/pnrr-bar-logo.jpg"
+            alt="FortNet Project"
+            className="shadow-lg"
+          />
       </Container>
+      
     </Footer>
   )
 }

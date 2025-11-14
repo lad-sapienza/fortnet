@@ -20,6 +20,11 @@ const HeaderSection = ({ siteTitle }) => (
             Fortification and population network in coastal Chaonia, Northern Epirus (Albania) between Iron Age and the Medieval period: a longue durée approach to the study of settlements, economic and defensive systems
           </p>
           <h2 className="text-light border-top mt-3 pt-1">PRIN 2022 Research Project</h2>
+          <img
+            src="/pnrr-bar-logo.jpg"
+            alt="FortNet Project"
+            className="shadow-lg"
+          />
         </div>
       </div>
     </Container>
