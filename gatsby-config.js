@@ -12,7 +12,7 @@ require("dotenv").config({
  */
 
 module.exports = {
-  pathPrefix: '/', //process.env.NODE_ENV === "production" ? "/sCMS/" : "/",
+  pathPrefix: '/',
   siteMetadata: {
     title: `FortNet Project`,
     description: `FortNet - Fortification and population network in coastal Chaonia, Northern Epirus (Albania) between Iron Age and the Medieval period. PRIN 2022 Research Project by Università di Bologna and Sapienza Università di Roma`,
