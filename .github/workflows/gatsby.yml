@@ -68,13 +68,14 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            public
             .cache
-          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('public') }}
+          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-gatsby-build-
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }} --include=optional
+      - name: Clean Gatsby cache
+        run: ${{ steps.detect-package-manager.outputs.manager }} run clean
       - name: Build with Gatsby
         env:
           PREFIX_PATHS: 'true'
