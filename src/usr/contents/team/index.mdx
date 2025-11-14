@@ -9,32 +9,131 @@ lang: "en"
 menu_position: 1
 ---
 
+import TeamItem from "../../modules/teamItem.js"
+import enricoGiorgiImage from "./enrico-giorgi.png"
+import julianBogdaniImage from "./julian-bogdani.jpg"
+import vincenzoBaldoniImage from "./vincenzo-baldoni.jpg"
+import federicaBoschiImage from "./federica-boschi.png"
+import enricoCirelliImage from "./enrico-cirelli.jpeg"
+import nadiaAleottiImage from "./nadia-aleotti.jpg"
+import federicaCarbottiImage from "./federica-carbotti.jpeg"
+import giacomoSigismondoImage from "./giacomo-sigismondo.png"
+import domiziaDErasmoImage from "./domizia-derasmo.jpg"
 
-## Principal Investigator
+export const TeamGrid = ({ children }) => (
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+    gap: '2rem',
+    marginBottom: '3rem'
+  }}>
+    {children}
+  </div>
+)
 
-PI - **Enrico Giorgi** (University of Bologna)
+export const teamMembers = [
+  {
+    role: "Principal Investigator",
+    name: "Enrico Giorgi",
+    email: "enrico.giorgi@unibo.it",
+    image: enricoGiorgiImage,
+    position: "Associate professor at the Department of History and Cultures of the University of Bologna.",
+    website: "https://www.unibo.it/sitoweb/enrico.giorgi",
+    academia: "https://unibo.academia.edu/EnricoGiorgi"
+  },
+  {
+    role: "Co-Principal Investigator",
+    name: "Julian Bogdani",
+    email: "julian.bogdani@uniroma1.it",
+    position: "Associate professor at the Department of History, Heritage, and Culture of the Sapienza University of Rome.",
+    website: "https://purl.org/lad/jb",
+    orcid: "https://orcid.org/0000-0001-5250-927X",
+    github: "https://github.com/jbogdani",
+    academia: "https://uniroma1.academia.edu/JulianBogdani",
+    researchGate: "https://www.researchgate.net/profile/Julian-Bogdani",
+    x: "https://twitter.com/JulianBogdani",
+    bluesky: "https://bsky.app/profile/jbogdani.bsky.social",
+    bibliography: "https://iris.uniroma1.it/browse?type=author&authority=rp62440&authority_lang=en",
+    image: julianBogdaniImage
+  },
+  {
+    name: "Vincenzo Baldoni",
+    email: "vincenzo.baldoni@unibo.it",
+    position: "Associate professor at the University of Bologna",
+    role: "Team member",
+    image: vincenzoBaldoniImage
+  },
+  {
+    name: "Federica Boschi",
+    email: "federica.boschi@unibo.it",
+    position: "University of Bologna",
+    role: "Team member",
+    image: federicaBoschiImage
+  },
+  {
+    name: "Enrico Cirelli",
+    email: "enrico.cirelli@unibo.it",
+    position: "University of Bologna",
+    role: "Team member",
+    image: enricoCirelliImage
+  },
+  {
+    name: "Nadia Aleotti",
+    email: "nadia.aleotti@uniroma1.it",
+    position: "Sapienza University of Rome",
+    role: "Team member",
+    academia: "https://uniroma1.academia.edu/NadiaAleotti",
+    researchGate: "https://www.researchgate.net/profile/Nadia_Aleotti",
+    image: nadiaAleottiImage
+  },
+  {
+    name: "Federica Carbotti",
+    email: "federica.carbotti@unibo.it",
+    position: "University of Bologna",
+    role: "Team member",
+    image: federicaCarbottiImage
+  },
+  {
+    name: "Giacomo Sigismondo",
+    email: "giacomo.sigismondo@unibo.it",
+    position: "University of Bologna",
+    role: "Team member",
+    image: giacomoSigismondoImage
+  },
+  {
+    name: "Domizia D'Erasmo",
+    email: "domizia.derasmo@uniroma1.it",
+    position: "Sapienza University of Rome",
+    role: "Team member",
+    github: "https://github.com/ddomizia",
+    academia: "https://uniroma1.academia.edu/domiziaderasmo",
+    researchGate: "https://www.researchgate.net/profile/Domizia_Derasmo",
+    x: "https://twitter.com/domizzzia",
+    image: domiziaDErasmoImage
+  }
+]
 
-[Write an e-mail](mailto:enrico.giorgi@unibo.it)
+## Research Team
 
-## Co-Principal Investigator
+## Research Team
 
-**Julian Bogdani** (Sapienza University of Rome)
-
-[Write an e-mail](mailto:julian.bogdani@uniroma1.it)
-
-## Other participants
-
-- **Vincenzo Baldoni** (University of Bologna)  
-[Write an e-mail](mailto:vincenzo.baldoni@unibo.it)
-- **Federica Boschi** (University of Bologna)  
-[Write an e-mail](mailto:federica.boschi@unibo.it)
-- **Enrico Cirelli** (University of Bologna)  
-[Write an e-mail](mailto:enrico.cirelli@unibo.it)
-- **Nadia Aleotti** (Sapienza University of Rome)  
-[Write an e-mail](mailto:nadia.aleotti@uniroma1.it)
-- **Federica Carbotti** (University of Bologna)  
-[Write an e-mail](mailto:federica.carbotti@unibo.it)
-- **Giacomo Sigismondo** (University of Bologna)  
-[Write an e-mail](mailto:giacomo.sigismondo@unibo.it) 
-- **Domizia D‘Erasmo** (Sapienza University of Rome)  
-[Write an e-mail](mailto:domizia.derasmo@uniroma1.it)
+<TeamGrid>
+  {teamMembers.map((member, index) => (
+    <TeamItem
+      key={index}
+      role={member.role}
+      name={member.name}
+      email={member.email}
+      position={member.position}
+      image={member.image}
+      website={member.website}
+      orcid={member.orcid}
+      github={member.github}
+      academia={member.academia}
+      researchGate={member.researchGate}
+      x={member.x}
+      bluesky={member.bluesky}
+      bibliography={member.bibliography}
+    />
+  ))}
+</TeamGrid>

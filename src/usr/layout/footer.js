@@ -19,57 +19,35 @@ const FooterSection = () => {
               PRIN 2022 Research Project funded by the European Union – Next Generation EU,
               Mission 4 Component 1
             </p>
+            <p className="footer-copyright">
+              © 2023 – {currentYear} FortNet Project • All rights reserved
+            </p>
           </div>
           <div className="footer-section">
             <h5 className="footer-heading">Partners</h5>
             <p className="footer-text">
               <a
-                href="https://www.unibo.it"
+                href="https://site.unibo.it/fortnetproject/"
                 target="_blank"
                 rel="noreferrer"
                 className="footer-link"
               >
-                Università di Bologna
+                Bologna University
               </a>
               <br />
               P.I.: Enrico Giorgi
             </p>
             <p className="footer-text">
               <a
-                href="https://www.uniroma1.it"
+                href="https://lad.saras.uniroma1.it/ricerca/fortnet-project-prin-2022/"
                 target="_blank"
                 rel="noreferrer"
                 className="footer-link"
               >
-                Sapienza Università di Roma
+                Sapienza University of Rome
               </a>
               <br />
-              Responsabile: Julian Bogdani
-            </p>
-          </div>
-          <div className="footer-section">
-            <h5 className="footer-heading">Resources</h5>
-            <div className="footer-links">
-              <a
-                href="https://site.unibo.it/butrint/en/prin-fortnet"
-                target="_blank"
-                rel="noreferrer"
-                className="footer-link"
-              >
-                UniBO Project Page
-              </a>
-              <span className="footer-separator">•</span>
-              <a
-                href="https://lad.saras.uniroma1.it"
-                target="_blank"
-                rel="noreferrer"
-                className="footer-link"
-              >
-                LAD Sapienza
-              </a>
-            </div>
-            <p className="footer-copyright">
-              © 2023 – {currentYear} FortNet Project • All rights reserved
+              Head of research unit: Julian Bogdani
             </p>
           </div>
         </div>
