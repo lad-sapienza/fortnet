@@ -45,7 +45,7 @@ jobs:
             exit 0
           elif [ -f "${{ github.workspace }}/package.json" ]; then
             echo "manager=npm" >> $GITHUB_OUTPUT
-            echo "command=ci" >> $GITHUB_OUTPUT
+            echo "command=install" >> $GITHUB_OUTPUT
             exit 0
           else
             echo "Unable to determine package manager"
@@ -73,15 +73,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gatsby-build-
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }} --include=optional
+        run: npm install --include=optional
+      - name: Rebuild native dependencies
+        run: npm rebuild @parcel/watcher
       - name: Clean Gatsby cache
-        run: ${{ steps.detect-package-manager.outputs.manager }} run clean
+        run: npm run clean
       - name: Build with Gatsby
         env:
           PREFIX_PATHS: 'true'
           GATSBY_DIRECTUS_ENDPOINT: ${{ secrets.GATSBY_DIRECTUS_ENDPOINT }}
           GATSBY_DIRECTUS_TOKEN: ${{ secrets.GATSBY_DIRECTUS_TOKEN }}
-        run: ${{ steps.detect-package-manager.outputs.manager }} run build
+        run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
