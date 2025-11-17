@@ -33,27 +33,33 @@ const ZoteroGeoViewer = ({
       const baseUrl = `https://api.zotero.org/groups/${groupId}/items/tags`
       const limit = 100
       let start = 0
-      let total = Infinity
       const result = {}
       const headers = { Accept: "application/json" }
-      while (start < total) {
+      let hasNext = true
+      
+      while (hasNext) {
         const url = `${baseUrl}?start=${start}&limit=${limit}`
         const resp = await fetch(url, { headers })
         if (!resp.ok) {
           throw new Error(`Zotero API error: ${resp.status} ${resp.statusText}`)
         }
         const items = await resp.json()
-        const totalResults = resp.headers.get("Total-Results")
-        if (totalResults == null) {
-          throw new Error("Missing Total-Results header")
+        
+        // Stop if we get an empty response
+        if (!items || items.length === 0) {
+          hasNext = false
+          break
         }
-        total = parseInt(totalResults, 10)
+        
         for (const item of items) {
           if (item.tag?.startsWith("@")) {
             result[item.tag] = item.meta.numItems
           }
         }
-        start += limit
+        
+        start += items.length
+        // Continue if we got a full page (might be more)
+        hasNext = items.length === limit
       }
       return result
     }

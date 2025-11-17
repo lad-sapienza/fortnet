@@ -43,7 +43,6 @@ export default function ZoteroRecordsPreview({ groupId, tag }) {
       try {
         let all = []
         let start = 0
-        let total = null
         let hasNext = true
 
         while (hasNext) {
@@ -53,31 +52,20 @@ export default function ZoteroRecordsPreview({ groupId, tag }) {
           if (!resp.ok)
             throw new Error(`Zotero API error: ${resp.status} ${resp.statusText}`)
 
-          if (total == null) {
-            const totalHeader = resp.headers.get("Total-Results") || resp.headers.get("total-results")
-            if (totalHeader) {
-              const n = parseInt(totalHeader, 10)
-              if (!Number.isNaN(n)) total = n
-            }
-          }
-
           const page = await resp.json()
           if (cancelled) return
 
-          all = all.concat(page)
-
-          if (total != null) {
-            hasNext = all.length < total
-          } else {
-            const link = resp.headers.get("Link") || resp.headers.get("link")
-            if (link && /rel="next"/i.test(link)) {
-              hasNext = true
-            } else {
-              hasNext = page.length === limit
-            }
+          // Stop if we get an empty response
+          if (!page || page.length === 0) {
+            hasNext = false
+            break
           }
 
+          all = all.concat(page)
           start += page.length
+
+          // Continue if we got a full page (might be more)
+          hasNext = page.length === limit
 
           // Update progressively so the UI shows results while loading
           setRecords([...all])
