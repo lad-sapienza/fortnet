@@ -292,7 +292,7 @@
 { "type": "Feature", "properties": { "name": "Pirgu", "altLabel": "", "id": 323, "source": "sitarc" }, "geometry": { "type": "Point", "coordinates": [ 19.824405324850296, 40.072594104434359 ] } },
 { "type": "Feature", "properties": { "name": "Aegean Sea", "altLabel": "Greece > Aegean", "id": 324 }, "geometry": { "type": "Point", "coordinates": [ 24.88635120292188, 38.47032340705114 ] } },
 { "type": "Feature", "properties": { "name": "Sofratika", "altLabel": "", "id": 325, "source": "sitarc" }, "geometry": { "type": "Point", "coordinates": [ 20.212172735807915, 39.993618315933283 ] } },
-{ "type": "Feature", "properties": { "name": "Passo di Kato Aetos", "altLabel": "", "id": 326, "source": "sitarc" }, "geometry": { "type": "Point", "coordinates": [ 20.074754462792679, 39.690303971515213 ] } },
+{ "type": "Feature", "properties": { "name": "Passo di Kato Aetos", "altLabel": "Kato Aetos, Kato Aetòs, Κάτω  Αετός, Κατω Αετος, Katoaitoi", "id": 326, "source": "sitarc" }, "geometry": { "type": "Point", "coordinates": [ 20.074754462792679, 39.690303971515213 ] } },
 { "type": "Feature", "properties": { "name": "Stegopulli", "altLabel": "", "id": 327, "source": "sitarc" }, "geometry": { "type": "Point", "coordinates": [ 20.250757944285692, 40.094609789271388 ] } },
 { "type": "Feature", "properties": { "name": "Dhermiu", "altLabel": "Dhermi, Dhërmi, Dhermiu, Dhërmiu, Zrimazes", "id": 328, "source": "sitarc" }, "geometry": { "type": "Point", "coordinates": [ 19.640283052581847, 40.152343918441808 ] } },
 { "type": "Feature", "properties": { "name": "Karosi", "altLabel": "Kasteli  Gradishta", "id": 329, "source": "sitarc" }, "geometry": { "type": "Point", "coordinates": [ 19.823051573992945, 40.081178959167666 ] } },
