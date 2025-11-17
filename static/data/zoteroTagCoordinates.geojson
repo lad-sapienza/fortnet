@@ -496,7 +496,7 @@
 { "type": "Feature", "properties": { "name": "Lofkënd", "altLabel": null, "id": 506, "source": "GeoNames (via Claude)" }, "geometry": { "type": "Point", "coordinates": [ 19.758035428408171, 40.641186367669199 ] } },
 { "type": "Feature", "properties": { "name": "Eleutherai", "altLabel": null, "id": 507, "source": "Pleiades (via Claude)" }, "geometry": { "type": "Point", "coordinates": [ 23.375472764761202, 38.179568378264804 ] } },
 { "type": "Feature", "properties": { "name": "Kastri Episkopikou", "altLabel": null, "id": 508, "source": "Archaeological (via Claude)" }, "geometry": { "type": "Point", "coordinates": [ 20.860112405587675, 39.53572969368858 ] } },
-{ "type": "Feature", "properties": { "name": "Shushica", "altLabel": null, "id": 509, "source": "GeoNames (via Claude)" }, "geometry": { "type": "Point", "coordinates": [ 30.490422212504861, 42.050029912720902 ] } },
+{ "type": "Feature", "properties": { "name": "Shushica", "altLabel": "Shushicë, Lumi i Shushicës, Lumi i Vlorës", "id": 509, "source": "GoogleMaps (>Shushicë)" }, "geometry": { "type": "Point", "coordinates": [ 19.51402, 40.3536012 ] } },
 { "type": "Feature", "properties": { "name": "Taras", "altLabel": null, "id": 510, "source": "Pleiades (via Claude)" }, "geometry": { "type": "Point", "coordinates": [ 17.2403, 40.4764 ] } },
 { "type": "Feature", "properties": { "name": "Acheron", "altLabel": null, "id": 511, "source": "GeoNames (via Claude)" }, "geometry": { "type": "Point", "coordinates": [ 20.4833, 39.25 ] } },
 { "type": "Feature", "properties": { "name": "Bushat", "altLabel": null, "id": 512, "source": "GeoNames (via Claude)" }, "geometry": { "type": "Point", "coordinates": [ 19.53035011874173, 41.944035066502735 ] } },
