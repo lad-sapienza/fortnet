@@ -21,7 +21,10 @@ export default function ZotMap({ geojson, instanceId, handlerName }) {
 
   return (
     <div style={{ height: "500px", marginBottom: "1em" }}>
-      <MapLibre height="100%" fullscreenControl="top-left">
+      <MapLibre 
+        height="100%" 
+        fullscreenControl="top-left" 
+        navigationControl="top-left">
         <RasterLayerLibre
           name="Esri Imagery/Satellite"
           url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
