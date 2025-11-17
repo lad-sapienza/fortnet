@@ -165,7 +165,20 @@ const ZoteroGeoViewer = ({
   }, [handlerName])
 
   if (error) return <div>Error: {error}</div>
-  if (!data || !mapped) return <div>Loading...</div>
+  if (!data || !mapped) return (
+    <div style={{
+      width: '100%',
+      minHeight: '600px',
+      backgroundColor: '#f5f5f5',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: '1.5rem',
+      color: '#666'
+    }}>
+      Loading...
+    </div>
+  )
 
   // Features with geometry
   const featuresWithGeometry = mapped ? mapped.filter(f => f.geometry) : []
