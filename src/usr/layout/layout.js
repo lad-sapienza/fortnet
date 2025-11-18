@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
         <Header siteTitle={data.site.siteMetadata.title} />
         
         <main className="main-content">
-          <Container>{children}</Container>
+          <Container style={{maxWidth: '1200px'}}>{children}</Container>
         </main>
         
         <Footer />
