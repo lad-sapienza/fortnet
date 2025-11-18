@@ -51,7 +51,7 @@ const FooterSection = () => {
               <br />
               Head of research unit: Julian Bogdani
               <br />
-              Dept. of SARAS, Faculty of Literature and Philosopy, Piazzale Aldo Moro 5, Roma
+              Dept. of SARAS, Faculty of Humanities and Philosopy, Piazzale Aldo Moro 5, Roma
             </p>
           </div>
         </div>
