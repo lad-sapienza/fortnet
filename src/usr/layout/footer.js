@@ -22,6 +22,9 @@ const FooterSection = () => {
             <p className="footer-copyright">
               © 2023 – {currentYear} FortNet Project • All rights reserved
             </p>
+            <p className="footer-copyright">
+              <strong>Privacy notice</strong><br />
+              This site <u>does not track</u> user activity and <u>does not collect</u> any personal data related to browsing, history, preferences, IP address, geolocation, or other personal information, whether aggregated or not. We are strongly committed to protecting user privacy and therefore do not collect usage statistics.</p>
           </div>
           <div className="footer-section">
             <h5 className="footer-heading">Partners</h5>
@@ -35,9 +38,10 @@ const FooterSection = () => {
                 Bologna University
               </a>
               <br />
-              P.I.: Enrico Giorgi
+              ℹ️ P.I.: Enrico Giorgi
               <br />
-              Dept. of History and Cultures, Piazza San Giovanni in Monte 2, Bologna
+              <a href="https://disci.unibo.it/en">🔗 Dept. of History and Cultures</a><br />
+              <a href="https://maps.app.goo.gl/LGZKocNuCuHxg6j17">📍 Piazza San Giovanni in Monte 2, Bologna, Italy</a>
             </p>
             <p className="footer-text">
               <a
@@ -49,9 +53,11 @@ const FooterSection = () => {
                 Sapienza University of Rome
               </a>
               <br />
-              Head of research unit: Julian Bogdani
+              ℹ️ Head of research unit: Julian Bogdani
               <br />
-              Dept. of SARAS, Faculty of Humanities and Philosopy, Piazzale Aldo Moro 5, Roma
+              <a href="https://saras.web.uniroma1.it/en">🔗 Dept. of History, Anthropology, Religions, Art, Performing Arts (SARAS)</a><br />
+              <a href="https://lettere.web.uniroma1.it/en">🔗 Faculty of Humanities and Philosopy</a><br />
+              <a href="https://maps.app.goo.gl/YqYunBYYGk6s4yK88">📍 Piazzale Aldo Moro 5, 00185 Rome Italy</a>
             </p>
           </div>
         </div>
