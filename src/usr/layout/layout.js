@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import { Container } from "react-bootstrap"
 
-import Navbar from "../../modules/autoNavbar"
+import Navbar from "../modules/NavBar"
 import Footer from "./footer"
 import Header from "./header"
 import "./layout.scss"
