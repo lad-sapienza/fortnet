@@ -1,18 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const ResearchItemWrapper = styled.div`
   display: flex;
-  flex-direction: ${props => props.imagePosition === 'right' ? 'row-reverse' : 'row'};
+  flex-direction: ${props => props.$imagePosition === 'right' ? 'row-reverse' : 'row'};
   gap: 2rem;
   margin-bottom: 3rem;
   padding-bottom: 3rem;
   align-items: flex-start;
   border-bottom: 1px solid #e2e8f0;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
 
   @media (max-width: 768px) {
     flex-direction: column;
+  }
+`
+const CollapsibleHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  padding: 0.5rem 0;
+`
+
+const PlusButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 3rem;
+  color: #3182ce;
+  cursor: pointer;
+  margin-left: 1rem;
+  outline: none;
+  transition: transform 0.2s;
+  &:active {
+    transform: scale(1.1);
   }
 `
 
@@ -37,7 +62,7 @@ const ContentWrapper = styled.div`
   flex: 1;
 `
 
-const Title = styled.h3`
+const Title = styled.h4`
   margin-top: 0;
   margin-bottom: 0.5rem;
 `
@@ -66,26 +91,40 @@ const Content = styled.div`
   }
 `
 
-export default function ActivityItem({ title, period, image, imagePosition = 'left', children }) {
-  // Try to get GatsbyImage if image is an object
-  const gatsbyImage = image && typeof image === 'object' ? getImage(image) : null
-  
+export default function ActivityItem({ title, period, image, imagePosition = 'left', children, opened = false }) {
+  const [isOpen, setIsOpen] = useState(opened);
+  const gatsbyImage = image && typeof image === 'object' ? getImage(image) : null;
+
+  const handleToggle = () => setIsOpen(open => !open);
+
   return (
-    <ResearchItemWrapper imagePosition={imagePosition}>
-      {image && (
-        <ImageWrapper>
-          {gatsbyImage ? (
-            <GatsbyImage image={gatsbyImage} alt={title} />
-          ) : typeof image === 'string' ? (
-            <img src={image} alt={title} />
-          ) : null}
-        </ImageWrapper>
+    <div>
+      <CollapsibleHeader onClick={handleToggle}>
+        <Title style={{ marginBottom: 0 }}>{title}</Title>
+        <PlusButton
+          aria-label={isOpen ? 'Collapse' : 'Expand'}
+          onClick={e => { e.stopPropagation(); handleToggle(); }}
+        >
+          {isOpen ? '−' : '+'}
+        </PlusButton>
+      </CollapsibleHeader>
+      {isOpen && (
+        <ResearchItemWrapper $imagePosition={imagePosition}>
+          {image && (
+            <ImageWrapper>
+              {gatsbyImage ? (
+                <GatsbyImage image={gatsbyImage} alt={title} />
+              ) : typeof image === 'string' ? (
+                <img src={image} alt={title} />
+              ) : null}
+            </ImageWrapper>
+          )}
+          <ContentWrapper>
+            {period && <Period>🗓️ {period}</Period>}
+            <Content>{children}</Content>
+          </ContentWrapper>
+        </ResearchItemWrapper>
       )}
-      <ContentWrapper>
-        <Title>{title}</Title>
-        {period && <Period>🗓️ {period}</Period>}
-        <Content>{children}</Content>
-      </ContentWrapper>
-    </ResearchItemWrapper>
-  )
+    </div>
+  );
 }
