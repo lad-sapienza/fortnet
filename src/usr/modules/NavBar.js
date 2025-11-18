@@ -10,38 +10,21 @@ const StickyMenu = styled.div`
   z-index: 100;
 `
 
-const IconButton = styled.button`
-  background: none;
-  border: none;
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  outline: none;
-  svg {
-    width: 2rem;
-    height: 2rem;
-    transition: all 0.2s;
-  }
-`
-
 function FN_Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const handleToggle = () => setMenuOpen(open => !open)
+  const [expanded, setExpanded] = useState(false)
   return (
     <StickyMenu>
       <Menu>
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" className="bg-body-tertiary" expanded={expanded}>
           <Container>
             <Navbar.Brand href={withPrefix(`/`)}>FortNet Project</Navbar.Brand>
-            <IconButton
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              onClick={handleToggle}
+            <Navbar.Toggle
+              style={{ border: 'none', outline: 'none' }}
               aria-controls="basic-navbar-nav"
-              aria-expanded={menuOpen}
+              onClick={() => setExpanded(exp => !exp)}
+              className="custom-navbar-toggle"
             >
-              {menuOpen ? (
+              {expanded ? (
                 // X icon
                 <svg
                   viewBox="0 0 24 24"
@@ -50,6 +33,7 @@ function FN_Navbar() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  style={{ width: "2rem", height: "2rem" }}
                 >
                   <line x1="18" y1="6" x2="6" y2="18" />
                   <line x1="6" y1="6" x2="18" y2="18" />
@@ -63,15 +47,16 @@ function FN_Navbar() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  style={{ width: "2rem", height: "2rem" }}
                 >
                   <line x1="3" y1="6" x2="21" y2="6" />
                   <line x1="3" y1="12" x2="21" y2="12" />
                   <line x1="3" y1="18" x2="21" y2="18" />
                 </svg>
               )}
-            </IconButton>
-            <Navbar.Collapse id="basic-navbar-nav" in={menuOpen}>
-              <Nav>
+            </Navbar.Toggle>
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="ms-auto">
                 <NavDropdown title="About" id="nav-dropdown">
                   <NavDropdown.Item href={withPrefix("/objectives/")}>
                     Objectives
@@ -146,6 +131,11 @@ function FN_Navbar() {
 const Menu = styled.div`
   .bg-body-tertiary {
     background-color: #ececec !important;
+  }
+  .custom-navbar-toggle:focus, .custom-navbar-toggle:focus-visible {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
   }
 `
 export default FN_Navbar
