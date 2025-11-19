@@ -15,18 +15,6 @@ const FooterSection = () => {
             <img src={fortnetLogo} alt="FortNet" className="footer-logo" />
           </div>
           <div className="footer-section">
-            <p className="footer-text">
-              PRIN 2022 Research Project funded by the European Union – Next Generation EU,
-              Mission 4 Component 1
-            </p>
-            <p className="footer-copyright">
-              © 2023 – {currentYear} FortNet Project • All rights reserved
-            </p>
-            <p className="footer-copyright">
-              <strong>Privacy notice</strong><br />
-              This site <u>does not track</u> user activity and <u>does not collect</u> any personal data related to browsing, history, preferences, IP address, geolocation, or other personal information, whether aggregated or not. We are strongly committed to protecting user privacy and therefore do not collect usage statistics.</p>
-          </div>
-          <div className="footer-section">
             <h5 className="footer-heading">Partners</h5>
             <p className="footer-text">
               <a
@@ -59,6 +47,18 @@ const FooterSection = () => {
               <a href="https://lettere.web.uniroma1.it/en">🔗 Faculty of Humanities and Philosopy</a><br />
               <a href="https://maps.app.goo.gl/YqYunBYYGk6s4yK88">📍 Piazzale Aldo Moro 5, 00185 Rome Italy</a>
             </p>
+          </div>
+          <div className="footer-section">
+            <p className="footer-text">
+              PRIN 2022 Research Project funded by the European Union – Next Generation EU,
+              Mission 4 Component 1
+            </p>
+            <p className="footer-copyright">
+              © 2023 – {currentYear} FortNet Project • All rights reserved
+            </p>
+            <p className="footer-copyright">
+              <strong>Privacy notice</strong><br />
+              This site <u>does not track</u> user activity and <u>does not collect</u> any personal data related to browsing, history, preferences, IP address, geolocation, or other personal information, whether aggregated or not. We are strongly committed to protecting user privacy and therefore do not collect usage statistics.</p>
           </div>
         </div>
         <img
