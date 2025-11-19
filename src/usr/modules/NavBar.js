@@ -77,9 +77,15 @@ function FN_Navbar() {
                   <NavDropdown.Item href={withPrefix("/field-research/")}>
                     Field research
                   </NavDropdown.Item>
+
+                  <NavDropdown.Divider />
+
                   <NavDropdown.Item href={withPrefix("/team-meetings/")}>
                     Team meetings
                   </NavDropdown.Item>
+
+                  <NavDropdown.Divider />
+
                   <NavDropdown.Item
                     href={withPrefix("/workshop-and-conferences/")}
                   >
@@ -92,6 +98,12 @@ function FN_Navbar() {
                   </NavDropdown.Item>
                   <NavDropdown.Item href={withPrefix("/public-engagement/")}>
                     Public engagement
+                  </NavDropdown.Item>
+
+                  <NavDropdown.Divider />
+
+                  <NavDropdown.Item href={withPrefix("/publications/")}>
+                    Publications
                   </NavDropdown.Item>
                 </NavDropdown>
 
