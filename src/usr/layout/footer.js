@@ -13,6 +13,10 @@ const FooterSection = () => {
         <div className="footer-content">
           <div className="footer-section">
             <img src={fortnetLogo} alt="FortNet" className="footer-logo" />
+            <p className="footer-text">
+              PRIN 2022 Research Project funded by the European Union – Next Generation EU,
+              Mission 4 Component 1
+            </p>
           </div>
           <div className="footer-section">
             <h5 className="footer-heading">Partners</h5>
@@ -49,10 +53,6 @@ const FooterSection = () => {
             </p>
           </div>
           <div className="footer-section">
-            <p className="footer-text">
-              PRIN 2022 Research Project funded by the European Union – Next Generation EU,
-              Mission 4 Component 1
-            </p>
             <p className="footer-copyright">
               © 2023 – {currentYear} FortNet Project • All rights reserved
             </p>
