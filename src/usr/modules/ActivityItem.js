@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { FaRegCalendarCheck } from "react-icons/fa";
 
 const ResearchItemWrapper = styled.div`
   display: flex;
@@ -120,7 +121,7 @@ export default function ActivityItem({ title, period, image, imagePosition = 'le
             </ImageWrapper>
           )}
           <ContentWrapper>
-            {period && <Period>🗓️ {period}</Period>}
+            {period && <Period><FaRegCalendarCheck /> {period}</Period>}
             <Content>{children}</Content>
           </ContentWrapper>
         </ResearchItemWrapper>
