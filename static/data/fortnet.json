@@ -1,0 +1,124 @@
+{
+  "version": 8,
+  "name": "Fortnet suervey",
+  "minzoom": 0,
+  "maxzoom": 24,
+  "sources": {
+    "vectorLyr": {
+      "type": "vector",
+      "tiles": [
+        "https://db.lad-sapienza.it/gis/caj/fortnet_gen_map/{z}/{x}/{y}"
+      ],
+      "maxzoom": 24
+    },
+    "EsriSat": {
+      "type": "raster",
+      "tiles": [
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+      ]
+    }
+  },
+  "layers": [
+    {
+      "id": "sat-esri",
+      "source": "EsriSat",
+      "type": "raster",
+      "metadata": {
+        "label": "ESRI Satellite"
+      }
+    },
+    {
+      "id": "fortnet-solid",
+      "source": "vectorLyr",
+      "source-layer": "fortnet_gen_map",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "filter": ["in", ["get", "type"], ["literal", ["bedrock", "fortification", "slope", "structures", ""]]],
+      "layout": {
+        "visibility": "visible",
+        "line-join": "round",
+        "line-cap": "round"
+      },
+      "metadata": {
+        "label": "Fortnet Survey: Structures",
+        "popupTemplate": "<strong>Site name: ${site_name}</strong><br>Type: ${type}",
+        "searchInFields": {
+          "Site Name": "site_name"
+        }
+      },
+      "paint": {
+        "line-color": [
+          "match",
+          ["get", "type"],
+          "bedrock", "#adadad",
+          "fortification", "#000000",
+          "slope", "#adadad",
+          "structures", "#000000",
+          "#5fcce7"
+        ],
+        "line-width": [
+          "match",
+          ["get", "type"],
+          "bedrock", 1,
+          "fortification", 1.7,
+          "slope", 2.3,
+          "structures", 1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "fortnet-dashed",
+      "source": "vectorLyr",
+      "source-layer": "fortnet_gen_map",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "filter": ["==", ["get", "type"], "reconstruction"],
+      "layout": {
+        "visibility": "visible",
+        "line-join": "round",
+        "line-cap": "round"
+      },
+      "metadata": {
+        "label": "Fortnet Survey: Reconstructions",
+        "popupTemplate": "<strong>Site name: ${site_name}</strong><br>Type: ${type}",
+        "searchInFields": {
+          "Site Name": "site_name"
+        }
+      },
+      "paint": {
+        "line-color": "#000000",
+        "line-width": 1.15,
+        "line-dasharray": [4, 2]
+      }
+    },
+    {
+      "id": "fortnet-dashdot",
+      "source": "vectorLyr",
+      "source-layer": "fortnet_gen_map",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "filter": ["==", ["get", "type"], "military trenches"],
+      "layout": {
+        "visibility": "visible",
+        "line-join": "round",
+        "line-cap": "round"
+      },
+      "metadata": {
+        "label": "Fortnet Survey: Military Trenches",
+        "popupTemplate": "<strong>Site name: ${site_name}</strong><br>Type: ${type}",
+        "searchInFields": {
+          "Site Name": "site_name"
+        }
+      },
+      "paint": {
+        "line-color": "#1f78b4",
+        "line-width": 1,
+        "line-dasharray": [4, 2, 1, 2]
+      }
+    }
+  ]
+}

@@ -38,7 +38,7 @@ All sites displayed on this map have been systematically documented by the FortN
 
 <MapLibre 
   center="20.12367,39.68117,10"
-  baseLayers={["EsriSatellite"]}
+  mapStyle="/data/fortnet.json"
 >
   <VectorLayerLibre
     name="Archaeological Sites"
@@ -50,7 +50,7 @@ All sites displayed on this map have been systematically documented by the FortN
       }
     }}
     checked={true}
-    fitToContent={true}
+    fitToContent={false}
     type="geojson"
     searchInFields={{
       "site_name": "Site name",
