@@ -59,7 +59,9 @@ const FooterSection = () => {
             <p className="footer-copyright">
               <strong>Privacy notice</strong><br />
               This site <u>does not track</u> user activity and <u>does not collect</u> any personal data related to browsing, history, preferences, IP address, geolocation, or other personal information, whether aggregated or not. We are strongly committed to protecting user privacy and therefore do not collect usage statistics.</p>
-          </div>
+            <p className="footer-copyright">
+              This site is powered by <a href="https://lad.saras.uniroma1.it/sviluppo/#scms" target="_blank" rel="noreferrer"><strong>s:CMS</strong></a>, a free and open source Content Managing System create with ❤️ by <a href="https://lad.saras.uniroma1.it/" target="_blank" rel="noreferrer">LAD @Sapienza</a>.</p>
+            </div>
         </div>
         <img
             src="/pnrr-bar-logo.jpg"
