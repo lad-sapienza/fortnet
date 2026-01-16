@@ -23,6 +23,8 @@
       "id": "sat-esri",
       "source": "EsriSat",
       "type": "raster",
+      "minzoom": 0,
+      "maxzoom": 18,
       "metadata": {
         "label": "ESRI Satellite"
       }
