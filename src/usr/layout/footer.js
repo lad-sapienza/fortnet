@@ -16,6 +16,11 @@ const FooterSection = () => {
             <p className="footer-text">
               PRIN 2022 Research Project funded by the European Union – Next Generation EU,
               Mission 4 Component 1
+              <br />
+              Codice del progetto: 20227S7YXL_001<br />
+              CUP: J53D23000100006<br />
+              Inizio: 28/09/2023<br />
+              Fine: 28/02/2026
             </p>
           </div>
           <div className="footer-section">
