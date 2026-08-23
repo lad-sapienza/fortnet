@@ -1,0 +1,90 @@
+---
+// Plain Bootstrap markup (no React island) — Bootstrap's own JS bundle
+// (loaded once below) drives the dropdown/collapse behaviour, the same
+// engine that sits behind react-bootstrap in the previous Gatsby version.
+---
+
+<div class="sticky-menu">
+  <div class="navbar-shell">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="/">FortNet Project</a>
+        <button
+          class="navbar-toggler custom-navbar-toggle"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#fortnetNavbar"
+          aria-controls="fortnetNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="fortnetNavbar">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                About
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/objectives/">Objectives</a></li>
+                <li><a class="dropdown-item" href="/methodology/">Methodology</a></li>
+                <li><a class="dropdown-item" href="/deliverables/">Deliverables</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="/people/">People</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Activities
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/field-research/">Field research</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="/team-meetings/">Team meetings</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="/workshop-and-conferences/">Workshop and conferences</a></li>
+                <li><a class="dropdown-item" href="/lectures-and-presentations/">Lectures and presentations</a></li>
+                <li><a class="dropdown-item" href="/public-engagement/">Public engagement</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="/publications/">Publications</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" title="Fortnet Atlas" href="/atlas/">Fortnet Atlas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" title="Bibliography Geo-viewer" href="/bibliography-geo-viewer/">Bibliography Geo-viewer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" title="Contacts" href="/contacts/">Contacts</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<script>
+  import "bootstrap/dist/js/bootstrap.bundle.min.js";
+</script>
+
+<style>
+  .sticky-menu {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .bg-body-tertiary {
+    background-color: #ececec !important;
+  }
+
+  .custom-navbar-toggle:focus,
+  .custom-navbar-toggle:focus-visible {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+</style>

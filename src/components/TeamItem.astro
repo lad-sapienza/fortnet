@@ -1,0 +1,215 @@
+---
+import { Image } from "astro:assets";
+import {
+  FaEnvelope,
+  FaGlobe,
+  FaGraduationCap,
+  FaGithub,
+  FaBook,
+} from "react-icons/fa";
+import { SiOrcid, SiResearchgate, SiX, SiBluesky } from "react-icons/si";
+
+interface Props {
+  name: string;
+  email?: string;
+  role?: string;
+  position?: string;
+  academia?: string;
+  researchGate?: string;
+  website?: string;
+  orcid?: string;
+  image?: ImageMetadata;
+  github?: string;
+  x?: string;
+  bluesky?: string;
+  bibliography?: string;
+}
+
+const {
+  name,
+  email,
+  role,
+  position,
+  academia,
+  researchGate,
+  website,
+  orcid,
+  image,
+  github,
+  x,
+  bluesky,
+  bibliography,
+} = Astro.props;
+---
+
+<div class="card">
+  {
+    image && (
+      <div class="image-container">
+        <Image src={image} alt={name} class="profile-image" />
+      </div>
+    )
+  }
+  <div class="card-body">
+    {role && <div class="role">{role}</div>}
+    <h3 class="name">{name}</h3>
+    {position && <p class="position">{position}</p>}
+
+    <div class="links">
+      {email && (
+        <a class="link" href={`mailto:${email}`} title="Email" aria-label={`Email ${name}`}>
+          <FaEnvelope />
+        </a>
+      )}
+      {website && (
+        <a class="link" href={website} target="_blank" rel="noreferrer" title="Website" aria-label={`${name}'s website`}>
+          <FaGlobe />
+        </a>
+      )}
+      {academia && (
+        <a class="link" href={academia} target="_blank" rel="noreferrer" title="Academia.edu" aria-label={`${name} on Academia.edu`}>
+          <FaGraduationCap />
+        </a>
+      )}
+      {researchGate && (
+        <a class="link" href={researchGate} target="_blank" rel="noreferrer" title="ResearchGate" aria-label={`${name} on ResearchGate`}>
+          <SiResearchgate />
+        </a>
+      )}
+      {orcid && (
+        <a class="link" href={orcid} target="_blank" rel="noreferrer" title="ORCID" aria-label={`${name} on ORCID`}>
+          <SiOrcid />
+        </a>
+      )}
+      {github && (
+        <a class="link" href={github} target="_blank" rel="noreferrer" title="GitHub" aria-label={`${name} on GitHub`}>
+          <FaGithub />
+        </a>
+      )}
+      {x && (
+        <a class="link" href={x} target="_blank" rel="noreferrer" title="X (Twitter)" aria-label={`${name} on X`}>
+          <SiX />
+        </a>
+      )}
+      {bluesky && (
+        <a class="link" href={bluesky} target="_blank" rel="noreferrer" title="Bluesky" aria-label={`${name} on Bluesky`}>
+          <SiBluesky />
+        </a>
+      )}
+      {bibliography && (
+        <a class="link" href={bibliography} target="_blank" rel="noreferrer" title="Institutional publications" aria-label={`${name}'s institutional publications`}>
+          <FaBook />
+        </a>
+      )}
+    </div>
+  </div>
+</div>
+
+<style>
+  .card {
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    height: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .image-container {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+  }
+
+  .role {
+    display: inline-block;
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+    margin-bottom: 0.25rem;
+    align-self: flex-start;
+  }
+
+  .name {
+    font-family: 'Jost', 'Futura', 'Century Gothic', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .position {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    background-color: #f1f5f9;
+    color: #2563eb;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+  }
+
+  .link:hover {
+    background-color: #2563eb;
+    color: #ffffff;
+    transform: scale(1.1);
+    opacity: 1;
+  }
+</style>

@@ -1,94 +1,41 @@
 {
-  "name": "@lad-sapienza/scms",
-  "private": false,
-  "description": "A complete starter, built with love by LAD @Sapienza and based on Gatsby.js, React, Bootstrap and other open source libraries to easily publish research data as static sites",
-  "version": "5.5.1",
+  "name": "fortnet",
+  "private": true,
+  "description": "FortNet Project website — fortification and population network in coastal Chaonia (Northern Epirus, Albania), PRIN 2022 research project by Università di Bologna and Sapienza Università di Roma. Built with Astro and s:CMS.",
+  "version": "1.0.0",
+  "type": "module",
   "author": {
     "name": "Julian Bogdani",
     "email": "julian.bogdani@uniroma1.it",
     "url": "https://lad.saras.uniroma1.it"
   },
-  "contributors": [
-    {
-      "name": "Eleonora Iacopini",
-      "email": "eleonora.iacopini@uniroma1.it",
-      "url": "https://lad.saras.uniroma1.it"
-    },
-    {
-      "name": "Erasmo Di Fonso",
-      "email": "erasmo.difonso@uniroma1.it",
-      "url": "https://lad.saras.uniroma1.it"
-    }
-  ],
-  "dependencies": {
-    "@mdx-js/react": "^3.1.1",
-    "@vis.gl/react-maplibre": "^8.1.0",
-    "@viz-js/viz": "^3.20.0",
-    "babel-plugin-styled-components": "^2.1.4",
-    "bootstrap": "^5.3.8",
-    "csvtojson": "^2.0.14",
-    "d3": "^7.9.0",
-    "gatsby": "5.14.5",
-    "gatsby-plugin-image": "3.14.0",
-    "gatsby-plugin-manifest": "5.14.0",
-    "gatsby-plugin-mdx": "5.14.1",
-    "gatsby-plugin-react-leaflet": "^4.0.3",
-    "gatsby-plugin-sass": "6.14.0",
-    "gatsby-plugin-sharp": "5.14.0",
-    "gatsby-plugin-styled-components": "6.14.0",
-    "gatsby-remark-autolink-headers": "6.14.0",
-    "gatsby-remark-prismjs": "^7.15.0",
-    "gatsby-source-filesystem": "5.14.0",
-    "gatsby-transformer-sharp": "5.14.0",
-    "geojson-bbox": "^0.0.1",
-    "leaflet": "^1.9.4",
-    "maplibre-gl": "^5.10.0",
-    "photoswipe": "^5.4.4",
-    "prism-themes": "^1.9.0",
-    "prismjs": "^1.30.0",
-    "react": "^18.3.1",
-    "react-bootstrap": "^2.10.10",
-    "react-bootstrap-icons": "^1.11.6",
-    "react-data-table-component": "^7.7.0",
-    "react-dom": "^18.3.1",
-    "react-icons": "^5.5.0",
-    "react-leaflet": "^4.2.1",
-    "react-photoswipe-gallery": "^4.0.0",
-    "react-router-dom": "^6.30.1",
-    "react-syntax-highlighter": "^15.6.6",
-    "styled-components": "^6.1.19"
-  },
-  "devDependencies": {
-    "ajv": "^8.17.1",
-    "prettier": "^3.6.2",
-    "sass": "^1.93.3"
-  },
-  "keywords": [
-    "gatsby",
-    "static site builder",
-    "research data publishing",
-    "datatable",
-    "leaflet",
-    "maplibre"
-  ],
   "license": "0BSD",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "upgrade-main": "command -v rsync >/dev/null && mkdir tmp && wget https://github.com/lab-archeologia-digitale/sCMS/archive/refs/heads/main.zip -O tmp/scms.zip && unzip tmp/scms.zip -d tmp/ && rsync -a  --exclude .cache --exclude .env.development --exclude .git --exclude .gitignore --exclude gatsby-config.js --exclude node_modules --exclude public --exclude README.md --exclude tmp --exclude src/usr --exclude static --delete tmp/sCMS-main/ . && rm -rf tmp",
-    "upgrade-dev": "command -v rsync >/dev/null && mkdir tmp && wget https://github.com/lab-archeologia-digitale/sCMS/archive/refs/heads/dev.zip -O tmp/scms.zip && unzip tmp/scms.zip -d tmp/ && rsync -a  --exclude .cache --exclude .env.development --exclude .git --exclude .gitignore --exclude gatsby-config.js --exclude node_modules --exclude public --exclude README.md --exclude tmp --exclude src/usr --exclude static --delete tmp/sCMS-dev/ . && rm -rf tmp"
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lad-sapienza/sCMS.git"
+  "dependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/markdown-remark": "^7.2.4",
+    "@lad-sapienza/scms-core": "^0.1.0-alpha.7",
+    "astro": "^7.2.4",
+    "bootstrap": "^5.3.8",
+    "maplibre-gl": "^5.21.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-icons": "^5.7.0",
+    "rehype-slug": "^6.0.0",
+    "styled-components": "^6.5.3"
   },
-  "bugs": {
-    "url": "https://github.com/lad-sapienza/sCMS/issues"
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "sass": "^1.98.0",
+    "typescript": "^5.9.3"
   },
-  "homepage": "https://scms.lad-sapienza.it",
-  "main": "gatsby-browser.js"
+  "overrides": {
+    "@vitejs/plugin-react": "^5.1.4"
+  }
 }

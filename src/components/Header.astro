@@ -1,0 +1,160 @@
+---
+import { Image } from "astro:assets";
+import nextGenEu from "../assets/branding/nextGenEu.png";
+import mur from "../assets/branding/mur.png";
+import italiaDomani from "../assets/branding/italia-domani.png";
+import uniboWhite from "../assets/branding/unibo-white.png";
+import sapienzaWhite from "../assets/branding/sapienza-white.png";
+import fortnetLogo from "../assets/branding/fortnet-logo.jpg";
+---
+
+<header class="fn-header">
+  <div class="container">
+    <div class="header-content">
+      <a href="/" class="logo-link">
+        <Image src={fortnetLogo} alt="FortNet Project" class="logo-image" />
+      </a>
+      <div class="header-text">
+        <h1 class="header-title">FortNet</h1>
+        <p class="header-description">
+          Fortification and population network in coastal Chaonia, Northern Epirus (Albania) between Iron Age and the Medieval period: a longue durée approach to the study of settlements, economic and defensive systems
+        </p>
+        <h2 class="text-light border-top mt-3 pt-1">PRIN 2022 Research Project</h2>
+        <div class="logo-bar">
+          <img src={nextGenEu.src} alt="Programma della Communità Europea Next Generation EU" />
+          <div class="divider"></div>
+          <img src={mur.src} alt="Ministero dell'Università e della Ricerca (MUR)" />
+          <div class="divider"></div>
+          <img src={italiaDomani.src} alt="Agezia “Italia Domani” Piano Nazionale di Ripresa e Resilienza" />
+          <div class="divider"></div>
+          <img src={uniboWhite.src} alt="Università di Bologna" />
+          <div class="divider"></div>
+          <img src={sapienzaWhite.src} alt="Sapienza Università di Roma" />
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .fn-header {
+    background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+    color: #ffffff;
+    padding: 2.5rem 0;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .header-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+    }
+  }
+
+  .logo-link {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .logo-link:hover {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+
+  .logo-image {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+    background-color: #ffffff;
+    padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .logo-image {
+      max-width: 250px;
+    }
+  }
+
+  .header-text {
+    flex: 1;
+  }
+
+  .header-title {
+    font-family: 'Jost', 'Futura', 'Century Gothic', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: 768px) {
+    .header-title {
+      font-size: 2.5rem;
+    }
+  }
+
+  .header-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 400;
+    max-width: 700px;
+  }
+
+  @media (max-width: 768px) {
+    .header-description {
+      font-size: 1rem;
+    }
+  }
+
+  .logo-bar {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .logo-bar img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    .logo-bar img {
+      height: 40px;
+    }
+
+    .logo-bar {
+      justify-content: center;
+      gap: 1rem;
+    }
+  }
+
+  .divider {
+    width: 2px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    .divider {
+      height: 40px;
+      display: none;
+    }
+  }
+</style>

@@ -42,13 +42,23 @@ Detailed information about research methodologies, findings, and project updates
 
 ## Technical Stack
 
-This website is built with [s:CMS](https://github.com/lad-sapienza/scms) - a static site Content Management System developed and maintained by LAD: Laboratorio di Archeologia Digitale alla Sapienza.
+This website is built with [s:CMS](https://github.com/lad-sapienza/scms-core) - a static site Content Management System developed and maintained by LAD: Laboratorio di Archeologia Digitale alla Sapienza.
 
 Key technologies:
-- **Gatsby.js** - Static site generation
-- **React** - UI components
+- **Astro** - Static site generation
+- **@lad-sapienza/scms-core** - Map, Record and ZoteroGeoViewer components
+- **React** - Interactive islands (Map, ZoteroGeoViewer, Record view, activity accordions)
+- **MapLibre GL** - Interactive maps
 - **Bootstrap** - Responsive design
-- **Styled Components** - Custom styling
-- **Jost & Inter fonts** - Modern typography
+- **Directus** - Site/record data backend
 - **Zotero API** - Bibliography management integration
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+Requires a `.env` file with `PUBLIC_DIRECTUS_URL` and `PUBLIC_DIRECTUS_TOKEN` (see `.env` in the repo for the current values).
 

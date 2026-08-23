@@ -1,0 +1,7 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const { Content, frontmatter } = await import('../content-pages/home.mdx');
+---
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+  <Content />
+</BaseLayout>
