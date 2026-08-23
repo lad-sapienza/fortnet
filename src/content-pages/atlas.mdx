@@ -3,7 +3,7 @@ title: "FortNet Archaeological Atlas"
 description: "Explore the FortNet Archaeological Atlas featuring an interactive map of archaeological sites, fortifications, and settlements catalogued during the project in coastal Chaonia, Northern Epirus, Albania. Browse sites from the Iron Age to Medieval period with detailed information and search capabilities."
 ---
 
-import { Map } from "@lad-sapienza/scms-core/components/Map";
+import AtlasMap from "../components/AtlasMap";
 
 ## Archaeological Atlas
 
@@ -26,34 +26,4 @@ All sites displayed on this map have been systematically documented by the FortN
 
 ---
 
-<Map
-  client:only="react"
-  center="20.12367,39.68117,10"
-  mapStyle="/data/fortnet.json"
-  height="600px"
-  directus={{
-    table: "sites",
-    geoField: "coordinates",
-    queryString: "filter[typology][_icontains]=fort",
-    name: "Archaeological Sites",
-    fitToContent: false,
-    searchInFields: {
-      site_name: "Site name",
-      typology: "Typology",
-      chronology: "Chronology",
-    },
-    style: {
-      type: "circle",
-      paint: {
-        "circle-radius": 8,
-        "circle-color": "#1e40af",
-        "circle-opacity": 0.85,
-        "circle-stroke-width": 1,
-        "circle-stroke-color": "#ffffff",
-        "circle-stroke-opacity": 0.95,
-      },
-    },
-    popup:
-      "<h4>${site_name}</h4><ul><li>Typology: ${typology}</li><li>Chronology: ${chronology}</li></ul><p class='text-center'><a class='btn btn-primary btn-sm' href='/record/?table=sites&id=${id}'>Details</a></p>",
-  }}
-/>
+<AtlasMap client:only="react" />
