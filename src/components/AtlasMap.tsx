@@ -59,7 +59,7 @@ export default function AtlasMap() {
       scaleControl="bottom-left"
       fullscreenControl="top-right"
       layerControl="top-right"
-      vectorLayers={
+      overlayLayers={
         sites
           ? [
               {
