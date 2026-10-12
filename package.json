@@ -1,7 +1,7 @@
 {
   "name": "fortnet",
   "private": true,
-  "description": "FortNet Project website — fortification and population network in coastal Chaonia (Northern Epirus, Albania), PRIN 2022 research project by Università di Bologna and Sapienza Università di Roma. Built with Astro and s:CMS.",
+  "description": "FortNet Project website \u2014 fortification and population network in coastal Chaonia (Northern Epirus, Albania), PRIN 2022 research project by Universit\u00e0 di Bologna and Sapienza Universit\u00e0 di Roma. Built with Astro and s:CMS.",
   "version": "1.0.0",
   "type": "module",
   "author": {
@@ -18,11 +18,11 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
-    "@astrojs/markdown-remark": "^7.2.4",
-    "@lad-sapienza/scms-core": "^0.1.0-alpha.9",
-    "astro": "^7.2.4",
+    "@astrojs/markdown-remark": "^7.3.0",
+    "@lad-sapienza/scms-core": "^0.2.1",
+    "astro": "^7.2.10",
     "bootstrap": "^5.3.8",
-    "maplibre-gl": "^5.21.0",
+    "maplibre-gl": "^6.7.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-icons": "^5.7.0",
@@ -34,8 +34,5 @@
     "@types/react-dom": "^19.2.3",
     "sass": "^1.98.0",
     "typescript": "^5.9.3"
-  },
-  "overrides": {
-    "@vitejs/plugin-react": "^5.1.4"
   }
 }
