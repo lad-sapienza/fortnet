@@ -1,5 +1,4 @@
-import { useRecordFetcher } from '@lad-sapienza/scms-core/components/Record/useRecordFetcher';
-import { Field, RecordProvider } from '@lad-sapienza/scms-core/components/Record';
+import { Field, RecordProvider, useRecordFetcher } from '@lad-sapienza/scms-core/components/Record';
 
 const capitalizeJoin = (values: string[]) =>
   values.map((v) => v.charAt(0).toUpperCase() + v.slice(1).toLowerCase()).join(', ');
