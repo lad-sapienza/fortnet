@@ -42,14 +42,6 @@ jobs:
           PUBLIC_DIRECTUS_TOKEN: ${{ secrets.PUBLIC_DIRECTUS_TOKEN }}
         run: npm run build
 
-      - name: TEMP keep dist for a manual Directus check
-        if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: fortnet-dist
-          path: dist/
-          retention-days: 1
-
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
