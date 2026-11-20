@@ -50,8 +50,8 @@ Key technologies:
 - **React** - Interactive islands (Map, ZoteroGeoViewer, Record view, activity accordions)
 - **MapLibre GL** - Interactive maps
 - **Bootstrap** - Responsive design
-- **Directus** - Site/record data backend
-- **Zotero API** - Bibliography management integration
+- **bdus5 (BraDypUS v5)** - Site/record data backend (the "fortnet" app at bdus.lad-sapienza.it)
+- **Zotero API** - Bibliography management integration (linked from each site's record in bdus5)
 
 ## Development
 
@@ -60,5 +60,5 @@ npm install
 npm run dev
 ```
 
-Requires a `.env` file with `PUBLIC_DIRECTUS_URL` and `PUBLIC_DIRECTUS_TOKEN` (see `.env` in the repo for the current values).
+Requires a `.env` file (copy `.env.example`) with a read-only bdus5 API key for the `fortnet` app — see the comments in `.env.example` for which pair of variables is build-time-only vs. client-exposed, and why.
 

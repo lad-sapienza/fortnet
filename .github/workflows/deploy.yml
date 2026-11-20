@@ -38,8 +38,10 @@ jobs:
 
       - name: Build
         env:
-          PUBLIC_DIRECTUS_URL: ${{ secrets.PUBLIC_DIRECTUS_URL }}
-          PUBLIC_DIRECTUS_TOKEN: ${{ secrets.PUBLIC_DIRECTUS_TOKEN }}
+          BDUS_BASE_URL: ${{ secrets.BDUS_BASE_URL }}
+          BDUS_API_KEY: ${{ secrets.BDUS_API_KEY }}
+          PUBLIC_BDUS_URL: ${{ secrets.BDUS_BASE_URL }}
+          PUBLIC_BDUS_TOKEN: ${{ secrets.BDUS_API_KEY }}
         run: npm run build
 
       - name: Upload Pages artifact

@@ -1,11 +1,19 @@
 import { Field, RecordProvider, useRecordFetcher } from '@lad-sapienza/scms-core/components/Record';
 
-const capitalizeJoin = (values: string[]) =>
-  values.map((v) => v.charAt(0).toUpperCase() + v.slice(1).toLowerCase()).join(', ');
+// bdus5's multi_select fields (typology, chronology) come back as a single
+// comma-joined string (e.g. "necropolis,sanctuary/temple"), not an array.
+const splitMulti = (value: string | string[]): string[] =>
+  Array.isArray(value) ? value : value.split(',').map((v) => v.trim()).filter(Boolean);
 
-interface BibliographicReference {
-  zotero: string;
-  details: string;
+const capitalizeJoin = (values: string | string[]) =>
+  splitMulti(values)
+    .map((v) => v.charAt(0).toUpperCase() + v.slice(1).toLowerCase())
+    .join(', ');
+
+interface BdusBibliographyEntry {
+  author_year: string;
+  pages?: string | null;
+  zotero_url?: string;
 }
 
 export default function RecordView() {
@@ -42,7 +50,7 @@ export default function RecordView() {
           <strong>Typology</strong>: <Field name="typology" transformer={capitalizeJoin} />
         </li>
         <li>
-          <strong>Chronology</strong>: <Field name="chronology" transformer={(d: string[]) => d.join(', ')} />
+          <strong>Chronology</strong>: <Field name="chronology" transformer={(d: string | string[]) => splitMulti(d).join(', ')} />
         </li>
         <li>
           <strong>Description</strong>: <Field name="description_en" />
@@ -54,14 +62,23 @@ export default function RecordView() {
       </p>
       <ul>
         <Field
-          name="bibligraphic_references"
-          transformer={(refs: BibliographicReference[]) =>
-            refs.map((r, i) => (
+          name="_bibliography"
+          transformer={(refs: Record<string, BdusBibliographyEntry> | BdusBibliographyEntry[]) => {
+            const entries = Object.values(refs);
+            if (entries.length === 0) return <li>No bibliographic references yet.</li>;
+            return entries.map((r, i) => (
               <li key={i}>
-                {r.zotero}, {r.details}
+                {r.zotero_url ? (
+                  <a href={r.zotero_url} target="_blank" rel="noreferrer">
+                    {r.author_year}
+                  </a>
+                ) : (
+                  r.author_year
+                )}
+                {r.pages ? `, ${r.pages}` : ''}
               </li>
-            ))
-          }
+            ));
+          }}
         />
       </ul>
       <hr />

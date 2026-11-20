@@ -1,7 +1,32 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import AtlasMap from '../components/AtlasMap';
+
 const { Content, frontmatter } = await import('../content-pages/atlas.mdx');
+
+// Built once at build time from the "sites" content collection (bdusLoader,
+// see content.config.ts) — see AtlasMap.tsx for why this can't be a
+// client-side fetch.
+const siteEntries = await getCollection('sites');
+const sites = {
+  type: 'FeatureCollection' as const,
+  features: siteEntries
+    .filter((entry: CollectionEntry<'sites'>) => entry.data._geometry)
+    .map((entry: CollectionEntry<'sites'>) => ({
+      type: 'Feature' as const,
+      id: entry.data.id,
+      geometry: entry.data._geometry,
+      properties: {
+        id: entry.data.id,
+        site_name: entry.data.site_name,
+        typology: entry.data.typology ?? '',
+        chronology: entry.data.chronology ?? '',
+      },
+    })),
+};
 ---
 <BaseLayout title={frontmatter.title} description={frontmatter.description}>
   <Content />
+  <AtlasMap client:only="react" sites={sites} />
 </BaseLayout>
